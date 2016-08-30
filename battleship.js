@@ -174,10 +174,22 @@ var controller={
 	 
 	  
 function init(){
-	var inputButton= document.getElementById("fireButton");
-	inputButton.onclick= fireHandler;
+	var fireButton= document.getElementById("fireButton");
+	fireButton.onclick= fireHandler;
+	var input=document.getElementById("guessInput"); 
+	input.onkeypress=handleKeyPress;
 	model.generateShipsLocation();
 	}
+	
+function handleKeyPress(e)
+{
+	var fireButton=document.getElementById("fireButton");
+	if(e.keyCode === 13)
+	{
+		fireButton.click();
+		return false;
+	}
+}
 	
 function fireHandler(){
 	var input=document.getElementById("guessInput");
